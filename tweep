@@ -1,0 +1,25 @@
+import tweepy
+ 
+def main():
+    twitter_auth_keys = { 
+        "consumer_key"        : "PLQoouACCqmQDgD96E6uJ5mjd",
+        "consumer_secret"     : "xtReh22rkIotsYnnUNTy5t920YrHsiZVaqG8Iss2LdtyW6oect",
+        "access_token"        : "1384320914938945540-daG3A0lmG1JwWGhNC3zs9VsfIXinvi",
+        "access_token_secret" : "nqpS59pQmUHn9NYpsZgG4mYkdS40bW37h4EqbX6667h3j"
+    }
+ 
+    auth = tweepy.OAuthHandler(
+            twitter_auth_keys['consumer_key'],
+            twitter_auth_keys['consumer_secret']
+            )
+    auth.set_access_token(
+            twitter_auth_keys['access_token'],
+            twitter_auth_keys['access_token_secret']
+            )
+    api = tweepy.API(auth)
+ 
+    tweet = "First tweet from python test."
+    status = api.update_status(status=tweet) 
+ 
+if __name__ == "__main__":
+    main()
